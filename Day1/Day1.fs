@@ -10,9 +10,9 @@ let unpack v =
 
 let part1 (lines: string list) =
     let (l1, l2) = splitLists lines
-    List.sum (List.map (fun (v1, v2) -> abs(v1 - v2)) (List.zip (List.sort(l1)) (List.sort(l2))))
+    printf "%d\n" (List.sum (List.map (fun (v1, v2) -> abs(v1 - v2)) (List.zip (List.sort(l1)) (List.sort(l2)))))
 
 let part2 lines =
     let (l1, l2) = splitLists lines
     let indexMap = Map(List.countBy id l2)
-    List.sum (List.map (fun v -> v * (indexMap.TryFind(v) |> unpack)) l1)
+    printf "%d\n" (List.sum (List.map (fun v -> v * (indexMap.TryFind(v) |> unpack)) l1))

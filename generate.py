@@ -6,9 +6,9 @@ def create_placeholder(day, path):
     with open(path, "w", encoding="utf-8") as fp:
         fp.write(f"module Day{day}\n\n")
         fp.write("let part1 (lines: string list) =\n")
-        fp.write("    0\n\n")
+        fp.write("    ()\n\n")
         fp.write("let part2 (lines: string list) =\n")
-        fp.write("    0\n")
+        fp.write("    ()\n")
 
 def add_to_fsproj(day, code_path, proj_path):
     new_lines = []

@@ -10,15 +10,13 @@ let order (arr: array<int * int>)  =
 let transformList (lines: string list) =
     List.map (fun (l: string) -> Array.map int (l.Split(" "))) lines
 
-
-
 let count (a: array<int>) =
     if (a |> Array.pairwise |> order) || (a |> Array.rev |> Array.pairwise |> order) then 1 else 0
 
 let part1 (lines: string list) =
     let intList = transformList lines
 
-    List.sumBy count intList
+    printf "%d\n" (List.sumBy count intList)
 
 let rec part2_rec index l =
     let new_list = snd (Array.unzip (Array.filter (fun (i, v) -> i <> index) (Array.indexed l)))
@@ -30,4 +28,4 @@ let rec part2_rec index l =
 
 let part2 lines =
     let intList = transformList lines
-    List.sumBy (fun v -> part2_rec 0 v) intList
+    printf "%d\n" (List.sumBy (fun v -> part2_rec 0 v) intList)

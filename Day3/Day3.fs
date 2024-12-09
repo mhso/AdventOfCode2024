@@ -13,7 +13,7 @@ let getMatches (s: string) =
 let part1 (lines: string list) =
     let allLines = String.concat "" lines
     let matches = getMatches allLines
-    List.sum (List.map (fun (m1: Group, m2: Group) -> (m1.Value |> int) * (m2.Value |> int)) matches)
+    printf "%d\n" (List.sum (List.map (fun (m1: Group, m2: Group) -> (m1.Value |> int) * (m2.Value |> int)) matches))
 
 let getFlags (s: string) (r: Regex) =
     let matches = r.Matches s
@@ -45,4 +45,4 @@ let part2 (lines: string list) =
 
     let matches = List.rev (getMatches allLines)
 
-    getValue (List.rev words) matches
+    printf "%d\n" (getValue (List.rev words) matches)

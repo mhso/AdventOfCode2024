@@ -36,7 +36,7 @@ let part1 (lines: string list) =
 
     arr[y,x] <- 'X'
     let newArr = tracePath x y dx dy arr
-    Seq.sumBy (fun c -> if c = 'X' then 1 else 0) (Seq.cast newArr)
+    printf "%d\n" (Seq.sumBy (fun c -> if c = 'X' then 1 else 0) (Seq.cast newArr))
 
 let rec tracePathCycle x y dx dy (arr: char array2d) s =
     if x < 0 || x >= Array2D.length1 arr || y < 0 || y >= Array2D.length2 arr then 0
@@ -78,4 +78,4 @@ let part2 (lines: string list) =
     )
     arr[sy,sx] <- 'X'
 
-    List.sumBy (fun (y, a) -> Array.sumBy (fun (x, _) -> tryStartPoint sx sy x y dx dy (Array2D.copy arr)) (Array.indexed a)) (List.indexed charArr)
+    printf "%d\n" (List.sumBy (fun (y, a) -> Array.sumBy (fun (x, _) -> tryStartPoint sx sy x y dx dy (Array2D.copy arr)) (Array.indexed a)) (List.indexed charArr))

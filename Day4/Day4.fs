@@ -82,7 +82,7 @@ let part1 (lines: string list) =
 
     let allSeq = diagSequences @ horizontalSeq @ verticalSeq
 
-    List.sumBy count allSeq
+    printf "%d\n" (List.sumBy count allSeq)
 
 let matchPart (a: char array, b: char array,  c: char array) =
     let s = System.String(a) + System.String(b) + System.String(c)
@@ -103,4 +103,4 @@ let part2 (lines: string list) =
     let h = lines.Length
     let charArr = List.map (fun (s: string) -> s.ToCharArray()) lines
 
-    List.sumBy count2d (List.windowed 3 charArr)
+    printf "%d\n" (List.sumBy count2d (List.windowed 3 charArr))

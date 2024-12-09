@@ -16,7 +16,7 @@ let part1 (lines: string list) =
     let map = List.fold orderMap Map.empty ordering
     let rest = List.map (fun (s: string) -> s.Split(",")) (lines.GetSlice (Some (ordering.Length + 1),  None))
 
-    List.sumBy (fun s -> if sortLine map s = s then s[s.Length / 2] |> int else 0) rest
+    printf "%d\n" (List.sumBy (fun s -> if sortLine map s = s then s[s.Length / 2] |> int else 0) rest)
 
 let pick map s =
     let v = sortLine map s
@@ -27,4 +27,4 @@ let part2 (lines: string list) =
     let map = List.fold orderMap Map.empty ordering
     let rest = List.map (fun (s: string) -> s.Split(",")) (lines.GetSlice (Some (ordering.Length + 1),  None))
 
-    List.sumBy (fun s -> pick map s) rest
+    printf "%d\n" (List.sumBy (fun s -> pick map s) rest)
