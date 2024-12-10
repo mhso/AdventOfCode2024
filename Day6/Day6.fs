@@ -50,8 +50,6 @@ let rec tracePathCycle x y dx dy (arr: char array2d) s =
     | _ -> 0
 
 let tryStartPoint sx sy x y dx dy (charArr: char array2d) =
-    let total = Array2D.length1 charArr * Array2D.length2 charArr
-    let progress = x + y * (Array2D.length2 charArr)
     if List.contains (charArr[y, x]) guards then 0
     else 
         charArr[y,x] <- '#'
